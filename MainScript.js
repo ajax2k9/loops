@@ -28,10 +28,6 @@ class point {
 function setup(){
      createCanvas(800,950);
      bkgdColor = color(255,200,100);
-     levelIdx = localStorage.getItem("level_index")
-     if(levelIdx == "null"){
-          levelIdx = 0;
-     }
      loadLevel(levelIdx)
      turnsUI = new TurnsUI(850,color(100))
      levelComplete = new LevelComplete(width/2,450);
@@ -51,13 +47,6 @@ function loadLevel(index){
      level.LoadBalls(levelJSON.balls);
 }
     
-function setLevel(data){
-     levelIdx = data
-}
-
-function setLevelZero(){
-     levelIdx = 0
-}
 function preload() {
      
      for(let i = 0; i < 25; i++){
@@ -67,6 +56,11 @@ function preload() {
      segundo = loadFont("assets/LABTSECS.ttf")
      segundoBold = loadFont("assets/LABTSECB.ttf")
      logo = loadImage("assets/loopslogo.png",100,50)
+
+     levelIdx = localStorage.getItem("level_index")
+     if(levelIdx == null || levelIdx == "null"){
+          levelIdx = 0;
+     }
 }
 
 
