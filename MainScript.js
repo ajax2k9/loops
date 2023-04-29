@@ -21,7 +21,8 @@ let userJSON;
 let arrowRPNG;
 let arrowLPNG;
 let redoPNG;
-
+let starPNG;
+let starPNG2;
 p5.disableFriendlyErrors = true;
 
 class point {
@@ -65,6 +66,8 @@ function preload() {
      arrowRPNG = loadImage("assets/arrow.png",100,50)
      arrowLPNG = loadImage("assets/arrowLeft.png",100,50)
      redoPNG = loadImage("assets/redo.png",100,50)
+     starPNG = loadImage("assets/star.png",100,50)
+     starPNG2 = loadImage("assets/starfilled.png",100,50)
 
      levelIdx = localStorage.getItem("level_index")
      if(levelIdx == null || levelIdx == "null"){

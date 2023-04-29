@@ -317,17 +317,13 @@ class LevelComplete{
     }
 
     drawStars(){
-        textAlign(CENTER,CENTER)
-        textFont("wingdings")
-        textSize(70);
-        fill(0)
-        
-        let x = 130;
+
+        let x = 130-32;
         for(let i = 0; i < 3; i++){
             if(turns <= level.swapArray.length * (i+1)){
-                text("✮",x,0);
+                image(starPNG2,x,-20);
             } else {
-                text("✰",x,0);
+                image(starPNG,x,-20);
             }
             x -= 130;
         }
