@@ -18,6 +18,12 @@ let levelComplete;
 let levelNum = 0;
 let frametime = 0;
 let userJSON;
+let arrowRPNG;
+let arrowLPNG;
+let redoPNG;
+
+p5.disableFriendlyErrors = true;
+
 class point {
      constructor(x, y) {
           this.x = x;
@@ -56,6 +62,9 @@ function preload() {
      segundo = loadFont("assets/LABTSECS.ttf")
      segundoBold = loadFont("assets/LABTSECB.ttf")
      logo = loadImage("assets/loopslogo.png",100,50)
+     arrowRPNG = loadImage("assets/arrow.png",100,50)
+     arrowLPNG = loadImage("assets/arrowLeft.png",100,50)
+     redoPNG = loadImage("assets/redo.png",100,50)
 
      levelIdx = localStorage.getItem("level_index")
      if(levelIdx == null || levelIdx == "null"){

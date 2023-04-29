@@ -134,18 +134,14 @@ class ArrowButton{
         stroke(0)
         strokeWeight(2)
         circle(this.x,this.y,this.d)
-        textAlign(CENTER,CENTER)
-        fill(0)
-        textFont("wingdings")
-        textSize(60)
-        text(this.string,this.x-5,this.y+3)
+        image(this.icon,this.x-32,this.y-32)
     }
 }
 
 class LeftArrow extends ArrowButton{
     constructor(_x,_y,_d){
         super(_x,_y,_d);
-        this.string = "×";
+        this.icon = arrowLPNG;
     }
 
     clickFunction(){
@@ -159,7 +155,7 @@ class LeftArrow extends ArrowButton{
 class RightArrow extends ArrowButton{
     constructor(_x,_y,_d){
         super(_x,_y,_d);
-        this.string = "Ø";
+        this.icon = arrowRPNG;
     }
 
     clickFunction(){
@@ -167,47 +163,17 @@ class RightArrow extends ArrowButton{
         loadLevel(levelIdx);
         levelComplete.hide();
     }
-
-    draw(){
-        if(!this.active){
-            return;
-        }
-        noFill();
-        stroke(0)
-        strokeWeight(2)
-        circle(this.x,this.y,this.d)
-        textAlign(CENTER,CENTER)
-        fill(0)
-        textFont("wingdings")
-        textSize(60)
-        text(this.string,this.x+5,this.y+3)
-    }
 }
 
 class RedoButton extends ArrowButton{
     constructor(_x,_y,_d){
         super(_x,_y,_d);
-        this.string = "⭯";
+        this.icon = redoPNG;
     }
 
     clickFunction(){
         loadLevel(levelIdx);
         levelComplete.hide();
-    }
-
-    draw(){
-        if(!this.active){
-            return;
-        }
-        noFill();
-        stroke(0)
-        strokeWeight(2)
-        circle(this.x,this.y,this.d)
-        textAlign(CENTER,CENTER)
-        fill(0)
-        textFont("wingdings")
-        textSize(60)
-        text(this.string,this.x,this.y+4)
     }
 }
 
@@ -317,8 +283,8 @@ class LevelComplete{
         this.y = y;
         this.d = 590;
         this.color = color(255,255,255,230);
-        this.leftArrow = new LeftArrow(-150,150,70);
-        this.rightArrow = new RightArrow(150,150,70);
+        this.leftArrow = new LeftArrow(-150,150,90);
+        this.rightArrow = new RightArrow(150,150,90);
         this.redo = new RedoButton(0,150,70);
         this.active = true
         this.angle = 0;
