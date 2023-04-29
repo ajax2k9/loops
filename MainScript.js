@@ -162,8 +162,8 @@ function draw(){
           buttons.forEach(b=>{b.draw();});
      }
      turnsUI.draw();
-     levelComplete.draw(); 
      drawVersion();
+     levelComplete.draw(); 
      
      moveInProgress = moveTimer > 0;
      if(moveTimer > 0) moveTimer-=0.1;
