@@ -29,6 +29,9 @@ function setup(){
      createCanvas(800,950);
      bkgdColor = color(255,200,100);
      levelIdx = localStorage.getItem("level_index")
+     if(levelIdx == null){
+          levelIdx = 0;
+     }
      loadLevel(levelIdx)
      turnsUI = new TurnsUI(850,color(100))
      levelComplete = new LevelComplete(width/2,450);
