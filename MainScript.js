@@ -29,7 +29,7 @@ function setup(){
      createCanvas(800,950);
      bkgdColor = color(255,200,100);
      levelIdx = localStorage.getItem("level_index")
-     if(levelIdx == null){
+     if(levelIdx == "null"){
           levelIdx = 0;
      }
      loadLevel(levelIdx)
