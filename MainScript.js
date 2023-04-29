@@ -25,6 +25,8 @@ let starPNG;
 let starPNG2;
 p5.disableFriendlyErrors = true;
 
+let versionInfo="0.1.0"
+
 class point {
      constructor(x, y) {
           this.x = x;
@@ -137,6 +139,14 @@ function drawBkgd(){
      drawDiagonal(1700,200,color(255,193,140),128)
 }
 
+function drawVersion(){
+     noStroke()
+     fill(255)
+     textFont(segundoBold)
+     textSize(40)
+     text("v"+versionInfo,width-55,40);
+}
+
 function draw(){
      background(bkgdColor)
 
@@ -153,9 +163,11 @@ function draw(){
      }
      turnsUI.draw();
      levelComplete.draw(); 
+     drawVersion();
      
      moveInProgress = moveTimer > 0;
      if(moveTimer > 0) moveTimer-=0.1;
      frametime += 0.02;
+
 }
 
