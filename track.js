@@ -155,7 +155,7 @@ class track{
 
     drawBkgd(){
         noFill()
-        if(moveInProgress && activeType == this.type){
+        if(moveInProgress && activeType == this.type && level.swapsComplete){
             stroke(255)
             strokeWeight(5)
         }   else {
