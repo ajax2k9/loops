@@ -126,9 +126,16 @@ class hole{
 
         let factor = this.t/10*PI*2
         strokeWeight(4 + factor)
+        
+        noStroke()
+        
+        fill(this.c)
+        rectMode(CENTER)
+        rect(this.x,this.y,64 + factor * 2,64 + factor * 2,16);
+        
         fill(100)
-        stroke(this.c);
-        circle(this.x,this.y,50 + factor * 2);
+        circle(this.x,this.y,50);
+        
         if(this.t > 0){
             this.t-=0.5;
         }else{
