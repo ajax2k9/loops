@@ -70,6 +70,7 @@ class Level{
         if(this.moveInProgress == true && moveInProgress == false){
             if(this.swapsComplete && this.CheckResults()){
                 levelComplete.show(true);
+                redoButton.active = false;
                 this.levelOver = true;
             } 
             

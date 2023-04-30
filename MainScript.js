@@ -23,9 +23,16 @@ let arrowLPNG;
 let redoPNG;
 let starPNG;
 let starPNG2;
+let redoButton;
 p5.disableFriendlyErrors = true;
 
+let canvas;
+let recording= false;
 let versionInfo="0.1.0"
+
+let capturer = new CCapture( { format: 'webm',name:"test_video", framerate: 30,
+verbose: true } );
+let startStop = false;
 
 class point {
      constructor(x, y) {
@@ -36,11 +43,12 @@ class point {
 
 function setup(){
      createCanvas(800,950);
+     canvas = document.getElementById("defaultCanvas0")
+     redoButton = new RedoButton(150,200,70);    
      bkgdColor = color(255,200,100);
      loadLevel(levelIdx)
      turnsUI = new TurnsUI(850,color(100))
-     levelComplete = new LevelComplete(width/2,450);
-     
+     levelComplete = new LevelComplete(width/2,450); 
 }
 
 function loadLevel(index){
@@ -54,6 +62,7 @@ function loadLevel(index){
 
      })
      level.LoadBalls(levelJSON.balls);
+     redoButton.active = true;
 }
     
 function preload() {
@@ -86,6 +95,8 @@ function mousePressed(){
           buttons.forEach(b=>{
                b.checkClick();
           })
+
+          redoButton.checkClick(0,0);
      }
 }
 
@@ -147,10 +158,22 @@ function drawVersion(){
      text("v"+versionInfo,width-55,40);
 }
 
+// function keyPressed(){
+//      recording = !recording;
+
+//      if(recording){
+//           capturer.start();
+//      } else {
+//           capturer.stop();
+//           capturer.save();
+//      }
+// }
+
 function draw(){
      background(bkgdColor)
 
      drawBkgd();
+     redoButton.draw();
      Logo(20);
      push();
      translate(level.offsX,level.offsY)
@@ -171,3 +194,10 @@ function draw(){
 
 }
 
+// function render(){
+// 	requestAnimationFrame(render);
+// 	// rendering stuff ...
+// 	capturer.capture( canvas );
+// }
+
+// render()
