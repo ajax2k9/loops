@@ -28,7 +28,7 @@ p5.disableFriendlyErrors = true;
 
 let canvas;
 let recording= false;
-let versionInfo="0.1.0"
+let versionInfo="0.1.1"
 
 let capturer = new CCapture( { format: 'webm',name:"test_video", framerate: 30,
 verbose: true } );
